@@ -5,7 +5,7 @@ while True:
 
     print("..................................................................................................................................................................................")
     print(f"\t\t\t\t\t{n}:Here is the function options.")
-    print("1.Full-Dictionary\t\t2.Access the value\t\t\t3.Add a new entity\t\t4.Update the value\t\t5.Remove the key\n6.Print all keys\t\t7.Print all values\t\t\t8.print all key-value pairs in the format key: value\t\t9.Check if the key exists\n10.Count number of keys\t\t11.Merge the two dictionaries\t\t12.Create a dictionary from a list of tuples\t\t\t13:Sort the keys\n14.Create a nested dictionary\t15.Access the value from nested\t16.Add a key in nested dictionary\t17.Delete the key from the nested dictionary.\n18.The keys in the outermost level of the nested dictionary and print them.\t\t\t\t19.find the key with the maximum value\n20) 1 to 5 to their squares\t21.the value associated with the key.\t22.the keys are the first n positive integers, and the values are their cubes.\n23.Flatten the following nested dictionary into a single-level dictionary\t24.the values are odd or even")
+    print("1.Full-Dictionary\t\t2.Access the value\t\t\t3.Add a new entity\t\t4.Update the value\t\t5.Remove the key\n6.Print all keys\t\t7.Print all values\t\t\t8.print all key-value pairs in the format key: value\t\t9.Check if the key exists\n10.Count number of keys\t\t11.Merge the two dictionaries\t\t12.Create a dictionary from a list of tuples\t\t\t13:Sort the keys\n14.Create a nested dictionary\t15.Access the value from nested\t   16.Add a key in nested dictionary\t17.Delete the key from the nested dictionary.\n18.The keys in the outermost level of the nested dictionary and print them.\t\t\t\t19.find the key with the maximum value\n20) 1 to 5 to their squares\t21.the value associated with the key.\t22.the keys are the first n positive integers, and the values are their cubes.\n23.Flatten the following nested dictionary into a single-level dictionary\t24.the values are odd or even")
     print("..................................................................................................................................................................................")
 
     user_input_for_options=input("\nEnter the option number which you want to use it: ")
@@ -152,7 +152,7 @@ while True:
         print("\n\t\t\t\t8.print all keys in key:value sequence\n")
 
         for keys,values in student_info.items():
-                    print("\t\t\t",keys,":",values)
+                    print("\t\t\t\t\t",keys,":",values)
 
     #9.	Check if the key grade exists in the student dictionary and print True or False
 
@@ -169,7 +169,7 @@ while True:
         user_input_for_exist_value=input("Enter the key which you want to exists: ")
                 #for keys,values in student_info.items():
         if  user_input_for_exist_value in student_info:
-                            print(f"\t\t\t\t{user_input_for_exist_value} is available..")
+                            print(f"\t\t\t\t{user_input_for_exist_value} is available.. The {user_input_for_exist_value} is {student_info[user_input_for_exist_value]}")
                         
                             
         else:
@@ -184,11 +184,21 @@ while True:
                     "age":19,
                     "grade":"A"
         }
+        user_input_for_permission=input("Do you want to add some keys: ")
+        if user_input_for_permission == "yes":
+            user_input_for_range=int(input("Enter number how many you want to add entity: "))
+            for i in range(0,user_input_for_range):
+                user_input_for_key=input("Enter the key: ")
+                user_input_for_value=input("Enter the value: ")
+                student_info[user_input_for_key]=user_input_for_value
+            print(student_info)    
+            #print("\t\t\tCount the total number of keys")
+            length=len(student_info)
 
-        print("\t\t\t10..Count the total number of keys")
-        length=len(student_info)
-
-        print("The length of our dictionary is : ",length)
+            print("The length of key in our dictionary is : ",length)
+        else:
+            length=len(student_info)
+            print("The length of our dictionary is : ",length)    
 
                                                         #Advanced Dictionary Usage
 
@@ -198,6 +208,9 @@ while True:
     elif user_input_for_options=="11":
         dict1 = {'a': 1, 'b': 2}  
         dict2 = {'c': 3, 'd': 4}  
+
+        print(dict1)
+        print(dict2)
 
         dict1.update(dict2)
         print(f"After merging dictionary: {dict1}")
@@ -209,7 +222,7 @@ while True:
 
         Tuple_list=[('name', 'Alice'), ('age', 25), ('city', 'Paris')]
         print(f"The Tuple list : {Tuple_list}")
-                #dict functionis use to create 
+                #dict function is use to create dictionary
         Tuple_list_from_dict=dict(Tuple_list)
 
         print(f"The list make a dictionary\n\t\t\t{Tuple_list_from_dict}")
@@ -217,13 +230,27 @@ while True:
 
     #14.	Sort the keys of the dictionary {'z': 1, 'a': 2, 'c': 3} in ascending order and print the sorted dictionary.
     elif user_input_for_options=="13":
-        unsort_dict={'z': 1, 'a': 2, 'c': 3}
+        unsort_dict={}
+        user_input_for_permission=input("Do you want to add some keys and values: ").lower()
+
             # print(f"\t\tThe unsorting Dictionary: \t{unsort_dict}")
+        if user_input_for_permission == "yes": 
+            user_input_for_addition=int(input("Enter how many entity you want to add: "))
+            for i in range(0,user_input_for_addition):
+                user_input_for_unsorted_key=input("Enter the key of unsorted dictionary: ")
+                user_input_for_unsorted_value=input("Enter the value of unsorted dictionary: ")
+                unsort_dict[user_input_for_unsorted_key]=user_input_for_unsorted_value
 
-        sort_dict=dict (sorted(unsort_dict.items() )  )
-        print(f"\n\tUnsorted Dictionary: {unsort_dict}")
+            sort_dict=dict (sorted(unsort_dict.items() )  )
+            print(f"\n\tUnsorted Dictionary: {unsort_dict}")
 
-        print(f"\n\t\t\tSorted dictionary{sort_dict}")
+            print(f"\n\t\t\tSorted dictionary{sort_dict}")
+        elif user_input_for_permission == "no":
+            unsort_dict={'z': 1, 'a': 2, 'c': 3}
+            sort_dict=dict (sorted(unsort_dict.items() )  )
+            print(f"\n\tUnsorted Dictionary: {unsort_dict}")
+
+            print(f"\n\t\t\tSorted dictionary{sort_dict}")
 
 
 
@@ -298,16 +325,17 @@ while True:
                 "city": "Faisalabad"
             }
         }
-        user_input_for_permission=input("Do you want to add a number.Enter Yes/no:").lower()
+        user_input_for_permission=input("Do you want to add something.Enter Yes/no:").lower()
         if user_input_for_permission == "yes":
-            add_number=int(input("Enter a number in 123-456-7890 format: "))
+            add_something_key=input("Enter a key: ")
+            add_something_value=input("Enter a value : ")
 
 
-            person["Phone-number"]=add_number
+            person[add_something_key]=add_something_value
             print(person)
         else:
-            print("\t\t\t\tYou do not add a key")
-            print(f"\t\t\tYour dictionary without addition a key {person}")
+            print("\t\t\t\t\t\tYou do not add a key")
+            print(f"\tYour dictionary without addition a key {person}")
 
     #print(f"Dictionry without add a key..{person}") 
 
@@ -396,20 +424,22 @@ while True:
         user_dict={}
 
         n=int(input("Enter a number how many items do you want to add: "))
+        if n>0:
+            for i in range(n):
+                key=input(f"Enter key {i+1}: " )
+                value=input(f"Enter value for key {key}: ")
+                user_dict[key]=value
 
-        for i in range(n):
-            key=input(f"Enter key {i+1}: " )
-            value=input(f"Enter value for key {key}: ")
-            user_dict[key]=value
+            print(user_dict)
+        #elif n==0:
+            if user_dict:
+                max_key_user=max(user_dict,key=user_dict.get)
+                print(f"The key with the maximum value in your dictionary is ({max_key_user}) with the value of ({user_dict[max_key_user]})")
 
-        print(user_dict)
-
-        if user_dict:
-            max_key_user=max(user_dict,key=user_dict.get)
-            print(f"The key with the maximum value in your dictionary is {max_key_user} with the value of {user_dict[max_key_user]}")
-
+        elif n==0:
+            print(f"The dictionary is {n} ")
         else:
-            print("The dictionary is empty ")        
+            print("The dictionary is empty")            
 
 
     #28.	Create a dictionary to map numbers 1 to 5 to their squares (e.g., {1: 1, 2: 4, 3: 9, ...}).
@@ -486,9 +516,12 @@ while True:
         print("Even-numbers=",even_num)
         print("Odd-numbers= ",odd_num)
 
+
     elif user_input_for_options == "q":
         print("Thanks for using it")
         break
+    else:
+        print("Please enter a valid option number.")
 
 
     n+=1
